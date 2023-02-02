@@ -20,7 +20,7 @@ import { BIconHouse } from 'bootstrap-icons-vue';
       <li class="nav-item">
         <a href="#" class="nav-link active">
           <BIconHouse class="m-2" />
-          Lista de atividades
+          My tasks
         </a>
       </li>
      

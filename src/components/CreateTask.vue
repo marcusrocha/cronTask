@@ -12,15 +12,15 @@ export default defineComponent({
   },
   methods: {
     startCron (){
-      this.cronId = setInterval(()=> {
-        this.seconds++                
+      this.cronId = window.setInterval(()=> {
+      this.seconds++                
       },1000)
     },
 
     stopCron (){
 
       this.$emit('stopedCron',{seconds : this.seconds, description : this.descriptionTask})
-      clearInterval(this.cronId);
+      window.clearInterval(this.cronId);
       this.seconds = 0;
       this.descriptionTask = '';
 

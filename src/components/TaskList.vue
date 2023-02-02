@@ -26,7 +26,7 @@ export default defineComponent({
 <template>
   <div class="card m-5">
     <div class="card-header">
-      Task {{number}} - {{task.description}}
+      #{{number}}: {{task.description}}
     </div>
     <div class="card-body">      
       <p class="card-text">Time: {{formatedSecond}}</p>

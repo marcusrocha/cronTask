@@ -7,7 +7,8 @@ export default defineComponent({
     return {
       seconds : 0,
       cronId : 0,
-      descriptionTask : ""
+      descriptionTask : "",
+      buttonControl : false
     }
   },
   methods: {
@@ -15,6 +16,7 @@ export default defineComponent({
       this.cronId = window.setInterval(()=> {
       this.seconds++                
       },1000)
+      this.buttonControl = !this.buttonControl;
     },
 
     stopCron (){
@@ -23,13 +25,17 @@ export default defineComponent({
       window.clearInterval(this.cronId);
       this.seconds = 0;
       this.descriptionTask = '';
+      this.buttonControl = !this.buttonControl;
 
     }
   },
   computed: {
     currentTaskTime() : string {
       return new Date(this.seconds * 1000).toISOString().substr(11,8);
-    }
+    },
+    buttonControl() : boolean {
+      return this.buttonControl;
+    } 
   }
 })
 </script>
@@ -40,8 +46,8 @@ export default defineComponent({
       aria-describedby="basic-addon2" v-model="descriptionTask" >
     <span class="input-group-text" id="basic-addon2">{{ currentTaskTime }}</span>
     <div>
-      <button type="button" class="btn btn-primary mx-2" @click="startCron">Start</button>
-      <button type="button" class="btn btn-danger"  @click="stopCron">Stop</button>
+      <button type="button" class="btn btn-primary mx-2" :disabled="buttonControl" @click="startCron">Start</button>
+      <button type="button" class="btn btn-danger" :disabled="!buttonControl" @click="stopCron">Stop</button>
     </div>
   </div>  
 </template>

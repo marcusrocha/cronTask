@@ -2,7 +2,7 @@
 
 ## Visit
 
-[Click here](cron-task.vercel.app). to visit the Cron Task :)
+[Click here](cron-task.vercel.app) to visit the Cron Task :)
 
 ## Project Setup
 
